@@ -4,25 +4,53 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Initial, a web tool to randomize a list and choose who goes first?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="https://byhernand.com/the-initial/favicon.png" type="image/png" />
   <title>The Initial - A tool to randomize a list</title>
 </head>
 <body>
-  <header>
-    <h1>The Initial</h1>
+  <header class="header">
+    <input class="btn" type="checkbox" id="checkbox" />
+    <label for="checkbox">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <figure class="logo">
+      <img src="https://byhernand.com/the-initial/logo.svg" alt="The Initial logo" />
+    </figure>
+    <nav>
+      <a class="repo" href="https://github.com/byhernand/the-initial"><span class="icon"></span>Repository</a>
+      <a class="details" href="https://twitter.com/byhernand">Made <strong>@byhernand</strong></a>
+    </nav>
   </header>
 
-  <main>
-    <form>
-      <label for="inputItems">Add new item</label>
-      <input type="text" id="inputItems"/>
-
-      <button type="button" id="addBtn">Add</button>
-      <button type="button" id="shuffleBtn">Shuffle</button>
-
+  <main class="main">
+    <section class="main-list">
       <ol id="myList"></ol>
+    </section>
+    <form class="main-form">
+      <button class="shuffle-btn" type="button" id="shuffleBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 22 22">
+          <g transform="translate(-28 -352)">
+          <rect width="22" height="22" transform="translate(28 352)" fill="none"/>
+          <path d="M11.5,9.885,5.605,4,4,5.605,9.885,11.49ZM15.952,4l2.322,2.322L4,20.608l1.605,1.605L19.891,7.939l2.322,2.322V4Zm.376,10.712-1.605,1.605,3.563,3.563-2.334,2.334h6.261V15.952l-2.322,2.322-3.563-3.563Z" transform="translate(26.3 349.4)" />
+          </g>
+        </svg>
+        Shuffle
+      </button>
+      <div class="input-field">
+        <input type="text" placeholder="New item" id="inputItems"/>
+        <button type="button" id="addBtn">Add</button>
+      </div>
     </form>
   </main>
 
-  <script src="js/script.js"></script>
+  <script src="js/burger.js"></script>
+  <script cript src="js/script.js"></script>
 </body>
 </html>

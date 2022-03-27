@@ -1,0 +1,245 @@
+/* Style Rules
+  1- Position
+  2- Display
+  3- Box Model
+  4- Typography
+  5- Visual Effects
+*/
+
+:root {
+  --yellow: #f5de49;
+  --white: #fff;
+  --off-white: #ececec;
+  --light-gray: #d1d1d0;
+  --mid-gray: #8a8987;
+  --dark-gray: #4a4945;
+  --black: #0f0e09;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  font-size: 1.6rem;
+}
+
+/*----- Header -----*/
+
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: var(--yellow);
+  transition: .6s;
+}
+
+.btn {
+  display: none;
+}
+
+label {
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 17px;
+}
+
+label span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--black);
+  transition: 0.6s;
+}
+
+.logo {
+  display: flex;
+  transition: .4s;
+}
+
+.logo img {
+  width: 100%;
+}
+
+nav {
+  display: none;
+  margin-top: 28px;
+}
+
+nav .repo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 60px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+nav .repo .icon{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-right: 4px;
+  background-image: url('https://byhernand.com/the-initial/github.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+nav .details {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.header.is-active {
+  height: 100vh;
+}
+
+.header.is-active .logo{
+  width: 108px;
+}
+
+.header.is-active nav {
+  display: block;
+}
+
+.btn:checked + label span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg) scale(1.2);
+}
+
+.btn:checked + label span:nth-child(2) {
+  transform: scale(0);
+}
+
+.btn:checked + label span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg) scale(1.2);
+}
+
+/*----- Main -----*/
+
+.main {
+  margin: 50px 0 70px;
+}
+
+.main-list {
+  padding: 24px 20px;
+}
+
+.main-list ol {
+  font-size: 2rem;
+  list-style-position: inside;
+}
+
+.main-list ol li {
+  margin-bottom: 14px;
+  color: var(--dark-gray)
+}
+
+.main-list ol li:last-child {
+  margin-bottom: 0;
+}
+
+.main-form {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 69px;
+  background-color: var(--off-white);
+}
+
+.shuffle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 111px;
+  height: 45px;
+  border: none;
+  margin-right: 4px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--mid-gray);
+  border-radius: 23px;
+  background-color: var(--light-gray);
+}
+
+.shuffle-btn svg {
+  margin-right: 4px;
+  fill: var(--mid-gray);
+}
+
+.input-field {
+  height: 44px;
+  padding: 11px 20px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 22px;
+}
+
+.input-field input {
+  width: 102px;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.6rem;
+  color: var(--mid-gray);
+  background-color: transparent;
+}
+
+.input-field button {
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--mid-gray);
+}
+
+.input-field input:focus-visible,
+.input-field button:focus-visible {
+  outline: none;
+}
+
+.input-field input:focus{
+  color: var(--dark-gray);
+}
+
+.input-field button.is-active {
+  color: var(--dark-gray);
+}
+
+.shuffle-btn.is-active {
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+.shuffle-btn.is-active svg {
+  fill: var(--black);
+}

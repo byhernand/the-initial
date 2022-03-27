@@ -1,18 +1,30 @@
-const addBtn = document.getElementById('addBtn');
 const shuffleBtn = document.getElementById('shuffleBtn');
+const input = document.getElementById('inputItems');
+const addBtn = document.getElementById('addBtn');
+
 let mainList = [];
 
 function addItem() {
-  const input = document.getElementById('inputItems');
   const orderedList = document.getElementById('myList');
   const newItem = document.createElement('li');
   const text = document.createTextNode(input.value);
 
-  newItem.appendChild(text);
-  orderedList.appendChild(newItem);
+  if (input.value) {
+    newItem.appendChild(text);
+    orderedList.appendChild(newItem);
 
-  mainList.push(input.value);
-  input.value = '';
+    mainList.push(input.value);
+
+    input.focus();
+    input.value = '';
+
+    (mainList.length >= 3)
+      ? shuffleBtn.classList.add('is-active')
+      : shuffleBtn.classList.remove('is-active');
+  }
+  else {
+    input.focus();
+  }
 }
 
 function shuffleList () {
@@ -20,27 +32,43 @@ function shuffleList () {
   const intialLength = mainList.length;
   const printedItems = document.querySelectorAll('ol li');
 
-  // Randomize list
-  for (let i = 0; i < intialLength; i++) {
-    const randomIndex = random(0, mainList.length - 1);
-    const newItem = mainList.splice(randomIndex, 1);
-    randomList.push(newItem);
-  }
+  if (shuffleBtn.classList.contains('is-active')) {
+    // Randomize list
+    for (let i = 0; i < intialLength; i++) {
+      const randomIndex = random(0, mainList.length - 1);
+      const newItem = mainList.splice(randomIndex, 1);
+      randomList.push(newItem);
+    }
 
-  mainList = randomList.flat().map(i => i);
+    mainList = randomList.flat().map(i => i);
 
-  // Print random items
-  for (let i = 0; i < printedItems.length; i++) {
-    printedItems[i].innerText = mainList[i];
+    // Print random items
+    for (let i = 0; i < printedItems.length; i++) {
+      printedItems[i].innerText = mainList[i];
+    }
   }
 }
 
-// Helper
+// Helpers
 function random(min, max) {
   let result;
   result = Math.floor(Math.random() * (max - min + 1)) + min;
   return result;
 }
 
-addBtn.addEventListener('click', addItem);
+function keys(event) {
+  if (event.key == 'Enter') {
+    event.preventDefault();
+    addItem();
+  }
+
+  (input.value)
+    ? addBtn.classList.add('is-active')
+    : addBtn.classList.remove('is-active')
+}
+
 shuffleBtn.addEventListener('click', shuffleList);
+input.addEventListener('keypress', keys);
+input.addEventListener('keyup', keys);
+addBtn.addEventListener('click', addItem);
+addBtn.addEventListener('click', keys);
