@@ -8,9 +8,13 @@ function addItem() {
   const orderedList = document.getElementById('myList');
   const newItem = document.createElement('li');
   const text = document.createTextNode(input.value);
+  const deleteBtn = document.createElement('span');
+
+  deleteBtn.addEventListener('click', deleteItem);
 
   if (input.value) {
     newItem.appendChild(text);
+    newItem.appendChild(deleteBtn);
     orderedList.appendChild(newItem);
 
     mainList.push(input.value);
@@ -32,7 +36,7 @@ function shuffleList () {
   const intialLength = mainList.length;
   const printedItems = document.querySelectorAll('ol li');
 
-  if (shuffleBtn.classList.contains('is-active')) {
+  if ( shuffleBtn.classList.contains('is-active') ) {
     // Randomize list
     for (let i = 0; i < intialLength; i++) {
       const randomIndex = random(0, mainList.length - 1);
@@ -65,6 +69,18 @@ function keys(event) {
   (input.value)
     ? addBtn.classList.add('is-active')
     : addBtn.classList.remove('is-active')
+}
+
+function deleteItem(event) {
+  const item = event.target.parentNode;
+  const itemIndex = mainList.indexOf(item.innerText);
+
+  mainList.splice(itemIndex, 1);
+  item.remove();
+
+  if (mainList.length < 3) {
+    shuffleBtn.classList.remove('is-active');
+  }
 }
 
 shuffleBtn.addEventListener('click', shuffleList);

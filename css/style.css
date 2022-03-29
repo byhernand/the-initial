@@ -148,22 +148,36 @@ nav .details {
   margin: 50px 0 70px;
 }
 
-.main-list {
+.list {
   padding: 24px 20px;
-}
-
-.main-list ol {
   font-size: 2rem;
   list-style-position: inside;
 }
 
-.main-list ol li {
+.list li {
   margin-bottom: 14px;
   color: var(--dark-gray)
 }
 
-.main-list ol li:last-child {
+.list li:last-child {
   margin-bottom: 0;
+}
+
+.list li span {
+  display: none;
+  position: absolute;
+  right: 20px;
+  width: 27px;
+  height: 27px;
+  background-image: url('https://byhernand.com/the-initial/close.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.list li:hover span{
+  display: inline-block;
 }
 
 .main-form {
