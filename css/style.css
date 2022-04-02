@@ -53,7 +53,7 @@ body {
   display: none;
 }
 
-label {
+.burger {
   position: absolute;
   top: 16px;
   left: 22px;
@@ -64,7 +64,7 @@ label {
   height: 17px;
 }
 
-label span {
+.burger span {
   display: block;
   width: 24px;
   height: 1px;
@@ -130,15 +130,15 @@ nav .details {
   display: block;
 }
 
-.btn:checked + label span:nth-child(1) {
+.btn:checked + .burger span:nth-child(1) {
   transform: translateY(8px) rotate(45deg) scale(1.2);
 }
 
-.btn:checked + label span:nth-child(2) {
+.btn:checked + .burger span:nth-child(2) {
   transform: scale(0);
 }
 
-.btn:checked + label span:nth-child(3) {
+.btn:checked + .burger span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg) scale(1.2);
 }
 
@@ -148,22 +148,51 @@ nav .details {
   margin: 50px 0 70px;
 }
 
-.list {
+.main-list {
+  position: relative;
   padding: 24px 20px;
+}
+
+.check-item {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: grid;
+  place-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.check-item input {
+  display: none;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--black);
+  background-color: var(--white);
+  border-radius: 50%;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.my-list {
   font-size: 2rem;
   list-style-position: inside;
 }
 
-.list li {
+.my-list li {
+  max-width: 300px;
   margin-bottom: 14px;
   color: var(--dark-gray)
 }
 
-.list li:last-child {
+.my-list li:last-child {
   margin-bottom: 0;
 }
 
-.list li span {
+.my-list li span {
   display: none;
   position: absolute;
   right: 20px;
@@ -176,8 +205,30 @@ nav .details {
   vertical-align: middle;
 }
 
-.list li:hover span{
+.my-list li:hover span{
   display: inline-block;
+}
+
+.check-item:active input {
+  background-color: var(--black);
+}
+
+.check-item.is-active input {
+  display: inline-block;
+}
+
+.my-list.is-random li {
+  color: var(--mid-gray);
+}
+
+.my-list.is-random li:nth-child(1) {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: var(--black);
+}
+
+.my-list.is-random li:nth-child(2) {
+  color: var(--dark-gray);
 }
 
 .main-form {
@@ -236,6 +287,34 @@ nav .details {
   color: var(--mid-gray);
 }
 
+.secondary-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 45px;
+  border: 1px solid var(--dark-gray);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--mid-gray);
+  border-radius: 22px;
+}
+
+.secondary-btn .icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  background-image: url('https://byhernand.com/the-initial/checklist.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.input-field.is-hide {
+  display: none;
+}
+
 .input-field input:focus-visible,
 .input-field button:focus-visible {
   outline: none;
@@ -256,4 +335,16 @@ nav .details {
 
 .shuffle-btn.is-active svg {
   fill: var(--black);
+}
+
+.shuffle-btn.is-hide {
+  display: none;
+}
+
+.secondary-btn.is-active {
+  display: flex;
+}
+
+.secondary-btn.restart-on .icon{
+  background-image: url('https://byhernand.com/the-initial/restart.svg');
 }

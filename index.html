@@ -15,7 +15,7 @@
 <body>
   <header class="header">
     <input class="btn" type="checkbox" id="checkbox" />
-    <label for="checkbox">
+    <label class="burger" for="checkbox">
       <span></span>
       <span></span>
       <span></span>
@@ -30,8 +30,11 @@
   </header>
 
   <main class="main">
-    <section>
-      <ol class="list" id="myList"></ol>
+    <section class="main-list">
+      <label class="check-item" for="check-item">
+        <input type="checkbox" id="check-item" />
+      </label>
+      <ol class="my-list" id="myList"></ol>
     </section>
     <form class="main-form">
       <button class="shuffle-btn" type="button" id="shuffleBtn">
@@ -41,7 +44,11 @@
           <path d="M11.5,9.885,5.605,4,4,5.605,9.885,11.49ZM15.952,4l2.322,2.322L4,20.608l1.605,1.605L19.891,7.939l2.322,2.322V4Zm.376,10.712-1.605,1.605,3.563,3.563-2.334,2.334h6.261V15.952l-2.322,2.322-3.563-3.563Z" transform="translate(26.3 349.4)" />
           </g>
         </svg>
-        Shuffle
+        <span>Shuffle</span>
+      </button>
+      <button class="secondary-btn" type="button" id="secondaryBtn">
+        <span class="icon"></span>
+        <span>Checklist</span>
       </button>
       <div class="input-field">
         <input type="text" placeholder="New item" id="inputItems"/>
@@ -51,6 +58,7 @@
   </main>
 
   <script src="js/burger.js"></script>
+  <script src="js/checklist.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

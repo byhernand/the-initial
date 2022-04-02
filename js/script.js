@@ -1,11 +1,12 @@
+const orderedList = document.getElementById('myList');
 const shuffleBtn = document.getElementById('shuffleBtn');
 const input = document.getElementById('inputItems');
 const addBtn = document.getElementById('addBtn');
+const secondaryBtn = document.getElementById('secondaryBtn');
 
-let mainList = [];
+let nameList = [];
 
 function addItem() {
-  const orderedList = document.getElementById('myList');
   const newItem = document.createElement('li');
   const text = document.createTextNode(input.value);
   const deleteBtn = document.createElement('span');
@@ -17,12 +18,12 @@ function addItem() {
     newItem.appendChild(deleteBtn);
     orderedList.appendChild(newItem);
 
-    mainList.push(input.value);
+    nameList.push(input.value);
 
     input.focus();
     input.value = '';
 
-    (mainList.length >= 3)
+    (nameList.length >= 3)
       ? shuffleBtn.classList.add('is-active')
       : shuffleBtn.classList.remove('is-active');
   }
@@ -31,25 +32,32 @@ function addItem() {
   }
 }
 
-function shuffleList () {
+function shuffleList() {
   const randomList = [];
-  const intialLength = mainList.length;
+  const intialLength = nameList.length;
   const printedItems = document.querySelectorAll('ol li');
+  const inputContainer = input.parentElement;
 
   if ( shuffleBtn.classList.contains('is-active') ) {
     // Randomize list
     for (let i = 0; i < intialLength; i++) {
-      const randomIndex = random(0, mainList.length - 1);
-      const newItem = mainList.splice(randomIndex, 1);
+      const randomIndex = random(0, nameList.length - 1);
+      const newItem = nameList.splice(randomIndex, 1);
       randomList.push(newItem);
     }
 
-    mainList = randomList.flat().map(i => i);
+    nameList = randomList.flatMap(i => i);
 
     // Print random items
     for (let i = 0; i < printedItems.length; i++) {
-      printedItems[i].innerText = mainList[i];
+      printedItems[i].innerText = nameList[i];
     }
+
+    orderedList.classList.add('is-random')
+    shuffleBtn.lastElementChild.innerText = 'Rerun';
+    inputContainer.classList.add('is-hide');
+    secondaryBtn.classList.add('is-active');
+    secondaryBtn.addEventListener('click', checklistMode);
   }
 }
 
@@ -72,13 +80,13 @@ function keys(event) {
 }
 
 function deleteItem(event) {
-  const item = event.target.parentNode;
-  const itemIndex = mainList.indexOf(item.innerText);
+  const listItem = event.target.parentNode;
+  const listItemIndex = nameList.indexOf(listItem.innerText);
 
-  mainList.splice(itemIndex, 1);
-  item.remove();
+  nameList.splice(listItemIndex, 1);
+  listItem.remove();
 
-  if (mainList.length < 3) {
+  if (nameList.length < 3) {
     shuffleBtn.classList.remove('is-active');
   }
 }
