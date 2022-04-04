@@ -1,0 +1,18 @@
+/*----- Main -----*/
+
+.main-form {
+  right: 0;
+  bottom: 40px;
+  left: 0;
+  max-width: 530px;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+.shuffle-btn {
+  margin-right: 12px;
+}
+
+.input-field {
+  width: 75%;
+}

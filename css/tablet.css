@@ -1,0 +1,61 @@
+/*----- Header -----*/
+
+.header-container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.burger {
+  display: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+}
+
+nav a:hover {
+  opacity: .65;
+}
+
+nav .repo {
+  width: auto;
+  height: 28px;
+  padding-right: 16px;
+  border-right: 1px solid var(--black);
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+nav .repo .icon {
+  width: 24px;
+  height: 24px;
+}
+
+nav .details {
+  display: inline-block;
+  font-size: 1.4rem;
+  margin-left: 16px;
+}
+
+.my-list li:hover::after {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 98%;
+  height: 1px;
+  content: '';
+  background-color: var(--mid-gray);
+}
+
+.my-list.is-random li:hover::after {
+  content: none;
+}

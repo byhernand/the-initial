@@ -39,14 +39,21 @@ body {
   position: absolute;
   top: 0;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 50px;
   background-color: var(--yellow);
   transition: .6s;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 40px);
+  max-width: 535px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .btn {
@@ -150,21 +157,26 @@ nav .details {
 
 .main-list {
   position: relative;
+  width: 100%;
+  max-width: 535px;
   padding: 24px 20px;
+  margin: 0 auto;
 }
 
 .check-item {
   position: absolute;
   top: 10px;
   right: 20px;
-  display: grid;
-  place-content: center;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 .check-item input {
-  display: none;
   width: 24px;
   height: 24px;
   border: 3px solid var(--black);
@@ -183,7 +195,7 @@ nav .details {
 }
 
 .my-list li {
-  max-width: 300px;
+  position: relative;
   margin-bottom: 14px;
   color: var(--dark-gray)
 }
@@ -203,18 +215,19 @@ nav .details {
   background-position: center;
   background-repeat: no-repeat;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .my-list li:hover span{
   display: inline-block;
 }
 
-.check-item:active input {
-  background-color: var(--black);
+.check-item.is-active {
+  display: flex;
 }
 
-.check-item.is-active input {
-  display: inline-block;
+.check-item.is-active:active input {
+  background-color: var(--black);
 }
 
 .my-list.is-random li {
@@ -264,6 +277,11 @@ nav .details {
 }
 
 .input-field {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  min-width: 173px;
+  max-width: 375px;
   height: 44px;
   padding: 11px 20px;
   border: 1px solid var(--dark-gray);
@@ -271,7 +289,7 @@ nav .details {
 }
 
 .input-field input {
-  width: 102px;
+  width: 95px;
   border: none;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.6rem;
@@ -298,6 +316,7 @@ nav .details {
   font-weight: bold;
   color: var(--mid-gray);
   border-radius: 22px;
+  cursor: pointer;
 }
 
 .secondary-btn .icon {
@@ -331,6 +350,7 @@ nav .details {
 .shuffle-btn.is-active {
   color: var(--black);
   background-color: var(--yellow);
+  cursor: pointer;
 }
 
 .shuffle-btn.is-active svg {

@@ -9,24 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tablet.css" media="screen and (min-width: 480px)" />
+  <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 1000px)" />
   <link rel="shortcut icon" href="https://byhernand.com/the-initial/favicon.png" type="image/png" />
   <title>The Initial - A tool to randomize a list</title>
 </head>
 <body>
   <header class="header">
-    <input class="btn" type="checkbox" id="checkbox" />
-    <label class="burger" for="checkbox">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <figure class="logo">
-      <img src="https://byhernand.com/the-initial/logo.svg" alt="The Initial logo" />
-    </figure>
-    <nav>
-      <a class="repo" href="https://github.com/byhernand/the-initial"><span class="icon"></span>Repository</a>
-      <a class="details" href="https://twitter.com/byhernand">Made <strong>@byhernand</strong></a>
-    </nav>
+    <div class="header-container">
+      <input class="btn" type="checkbox" id="checkbox" />
+      <label class="burger" for="checkbox">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <figure class="logo">
+        <img src="https://byhernand.com/the-initial/logo.svg" alt="The Initial logo" />
+      </figure>
+      <nav>
+        <a class="repo" href="https://github.com/byhernand/the-initial"><span class="icon"></span>Repository</a>
+        <a class="details" href="https://twitter.com/byhernand">Made <strong>@byhernand</strong></a>
+      </nav>
+    </div>
   </header>
 
   <main class="main">
@@ -36,7 +40,7 @@
       </label>
       <ol class="my-list" id="myList"></ol>
     </section>
-    <form class="main-form">
+    <form class="main-form" autocomplete="off">
       <button class="shuffle-btn" type="button" id="shuffleBtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 22 22">
           <g transform="translate(-28 -352)">
