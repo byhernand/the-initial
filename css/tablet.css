@@ -1,5 +1,17 @@
 /*----- Header -----*/
 
+.header.is-active {
+  height: 50px;
+}
+
+.header.is-active .logo{
+  width: auto;
+}
+
+.header.is-active nav {
+  display: flex;
+}
+
 .header-container {
   flex-direction: row;
   justify-content: space-between;
@@ -46,6 +58,16 @@ nav .details {
   margin-left: 16px;
 }
 
+/*----- Main -----*/
+
+.check-item {
+  cursor: pointer;
+}
+
+.check-item input {
+  cursor: pointer;
+}
+
 .my-list li:hover::after {
   position: absolute;
   bottom: -6px;
@@ -58,4 +80,20 @@ nav .details {
 
 .my-list.is-random li:hover::after {
   content: none;
+}
+
+.my-list li span {
+  cursor: pointer;
+}
+
+.shuffle-btn.is-active {
+  cursor: pointer;
+}
+
+.input-field button.is-active:hover {
+  cursor: pointer;
+}
+
+.secondary-btn {
+  cursor: pointer;
 }

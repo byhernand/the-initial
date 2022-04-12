@@ -45,6 +45,18 @@ body {
   transition: .6s;
 }
 
+.header.is-active {
+  height: 100vh;
+}
+
+.header.is-active .logo{
+  width: 108px;
+}
+
+.header.is-active nav {
+  display: block;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -58,6 +70,18 @@ body {
 
 .btn {
   display: none;
+}
+
+.btn:checked + .burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg) scale(1.2);
+}
+
+.btn:checked + .burger span:nth-child(2) {
+  transform: scale(0);
+}
+
+.btn:checked + .burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg) scale(1.2);
 }
 
 .burger {
@@ -125,30 +149,6 @@ nav .details {
   color: var(--black);
 }
 
-.header.is-active {
-  height: 100vh;
-}
-
-.header.is-active .logo{
-  width: 108px;
-}
-
-.header.is-active nav {
-  display: block;
-}
-
-.btn:checked + .burger span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg) scale(1.2);
-}
-
-.btn:checked + .burger span:nth-child(2) {
-  transform: scale(0);
-}
-
-.btn:checked + .burger span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg) scale(1.2);
-}
-
 /*----- Main -----*/
 
 .main {
@@ -173,7 +173,14 @@ nav .details {
   align-items: center;
   width: 60px;
   height: 60px;
-  cursor: pointer;
+}
+
+.check-item.is-active {
+  display: flex;
+}
+
+.check-item.is-active:active input {
+  background-color: var(--black);
 }
 
 .check-item input {
@@ -184,7 +191,6 @@ nav .details {
   border-radius: 50%;
   vertical-align: middle;
   outline: none;
-  cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
 }
@@ -194,10 +200,28 @@ nav .details {
   list-style-position: inside;
 }
 
+.my-list.is-random li {
+  color: var(--mid-gray);
+}
+
+.my-list.is-random li:nth-child(1) {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: var(--black);
+}
+
+.my-list.is-random li:nth-child(2) {
+  color: var(--dark-gray);
+}
+
 .my-list li {
   position: relative;
   margin-bottom: 14px;
   color: var(--dark-gray)
+}
+
+.my-list li:hover span{
+  display: inline-block;
 }
 
 .my-list li:last-child {
@@ -215,33 +239,6 @@ nav .details {
   background-position: center;
   background-repeat: no-repeat;
   vertical-align: middle;
-  cursor: pointer;
-}
-
-.my-list li:hover span{
-  display: inline-block;
-}
-
-.check-item.is-active {
-  display: flex;
-}
-
-.check-item.is-active:active input {
-  background-color: var(--black);
-}
-
-.my-list.is-random li {
-  color: var(--mid-gray);
-}
-
-.my-list.is-random li:nth-child(1) {
-  font-weight: bold;
-  font-size: 2.2rem;
-  color: var(--black);
-}
-
-.my-list.is-random li:nth-child(2) {
-  color: var(--dark-gray);
 }
 
 .main-form {
@@ -271,6 +268,19 @@ nav .details {
   background-color: var(--light-gray);
 }
 
+.shuffle-btn.is-active {
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+.shuffle-btn.is-active svg {
+  fill: var(--black);
+}
+
+.shuffle-btn.is-hide {
+  display: none;
+}
+
 .shuffle-btn svg {
   margin-right: 4px;
   fill: var(--mid-gray);
@@ -288,8 +298,12 @@ nav .details {
   border-radius: 22px;
 }
 
+.input-field.is-hide {
+  display: none;
+}
+
 .input-field input {
-  width: 95px;
+  width: 100%;
   border: none;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.6rem;
@@ -297,12 +311,27 @@ nav .details {
   background-color: transparent;
 }
 
+.input-field input:focus{
+  color: var(--dark-gray);
+}
+
 .input-field button {
+  padding-left: 12px;
   border: none;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   font-size: 1.6rem;
   color: var(--mid-gray);
+  background-color: transparent;
+}
+
+.input-field button.is-active {
+  color: var(--dark-gray);
+}
+
+.input-field input:focus-visible,
+.input-field button:focus-visible {
+  outline: none;
 }
 
 .secondary-btn {
@@ -315,8 +344,16 @@ nav .details {
   font-size: 1.6rem;
   font-weight: bold;
   color: var(--mid-gray);
+  background-color: transparent;
   border-radius: 22px;
-  cursor: pointer;
+}
+
+.secondary-btn.is-active {
+  display: flex;
+}
+
+.secondary-btn.restart-on .icon{
+  background-image: url('https://byhernand.com/the-initial/restart.svg');
 }
 
 .secondary-btn .icon {
@@ -328,43 +365,4 @@ nav .details {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.input-field.is-hide {
-  display: none;
-}
-
-.input-field input:focus-visible,
-.input-field button:focus-visible {
-  outline: none;
-}
-
-.input-field input:focus{
-  color: var(--dark-gray);
-}
-
-.input-field button.is-active {
-  color: var(--dark-gray);
-}
-
-.shuffle-btn.is-active {
-  color: var(--black);
-  background-color: var(--yellow);
-  cursor: pointer;
-}
-
-.shuffle-btn.is-active svg {
-  fill: var(--black);
-}
-
-.shuffle-btn.is-hide {
-  display: none;
-}
-
-.secondary-btn.is-active {
-  display: flex;
-}
-
-.secondary-btn.restart-on .icon{
-  background-image: url('https://byhernand.com/the-initial/restart.svg');
 }
