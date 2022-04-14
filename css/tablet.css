@@ -60,6 +60,11 @@ nav .details {
 
 /*----- Main -----*/
 
+.spinner {
+  width: 80px;
+  height: 80px;
+}
+
 .check-item {
   cursor: pointer;
 }

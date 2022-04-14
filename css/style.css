@@ -38,7 +38,7 @@ body {
 .header {
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   height: 50px;
   background-color: var(--yellow);
@@ -163,6 +163,46 @@ nav .details {
   margin: 0 auto;
 }
 
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+}
+
+.loader.is-active {
+  display: grid;
+  place-content: center;
+}
+
+.spinner {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--yellow);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
 .check-item {
   position: absolute;
   top: 10px;
@@ -243,6 +283,7 @@ nav .details {
 
 .main-form {
   position: fixed;
+  z-index: 2;
   bottom: 0;
   display: flex;
   justify-content: center;

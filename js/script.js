@@ -37,6 +37,7 @@ function shuffleList() {
   const intialLength = nameList.length;
   const printedItems = document.querySelectorAll('ol li');
   const inputContainer = input.parentElement;
+  const loader = document.querySelector('.loader');
 
   if ( shuffleBtn.classList.contains('is-active') ) {
     // Randomize list
@@ -58,6 +59,11 @@ function shuffleList() {
     inputContainer.classList.add('is-hide');
     secondaryBtn.classList.add('is-active');
     secondaryBtn.addEventListener('click', checklistMode);
+
+    loader.classList.add('is-active')
+    setTimeout( () => {
+      loader.classList.remove('is-active');
+    }, 2000)
   }
 }
 
