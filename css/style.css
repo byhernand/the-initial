@@ -186,7 +186,7 @@ nav .details {
   border: 6px solid var(--yellow);
   border-bottom-color: transparent;
   border-radius: 50%;
-  animation: rotation 1.5s linear infinite;
+  animation: rotation 1s linear infinite;
 }
 
 @keyframes rotation {
@@ -271,7 +271,7 @@ nav .details {
 .my-list li span {
   display: none;
   position: absolute;
-  right: 20px;
+  right: 0px;
   width: 27px;
   height: 27px;
   background-image: url('https://byhernand.com/the-initial/close.svg');
