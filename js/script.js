@@ -1,12 +1,14 @@
 const orderedList = document.getElementById('myList');
-const shuffleBtn = document.getElementById('shuffleBtn');
 const input = document.getElementById('inputItems');
 const addBtn = document.getElementById('addBtn');
+const shuffleBtn = document.getElementById('shuffleBtn');
 const secondaryBtn = document.getElementById('secondaryBtn');
 const nameList = [];
 
 
 function addItem() {
+  if (input.value.trim().length === 0) return null;
+
   const newItem = document.createElement('li');
   const text = document.createTextNode(input.value);
   const deleteBtn = document.createElement('span');
@@ -22,9 +24,12 @@ function addItem() {
     input.focus();
     input.value = '';
 
-    (nameList.length >= 3)
-      ? shuffleBtn.classList.add('is-active')
-      : shuffleBtn.classList.remove('is-active');
+    addBtn.classList.toggle('is-active');
+
+    if (nameList.length >= 3) {
+      addBtn.classList.add('is-hide');
+      shuffleBtn.classList.add('is-active');
+    }
   }
   else {
     input.focus();
@@ -39,15 +44,13 @@ function random(min, max) {
 }
 
 
-function shuffleList() {
-  const shuffleBtnIsActive = shuffleBtn.classList.contains('is-active');
-  if (!shuffleBtnIsActive) return null;
-
+function shuffleList(event) {
   const nameListCopy = nameList.map(item => item);
   const printedList = document.querySelectorAll('ol li');
   const printedItems = Array.from(printedList);
   const initialValues = printedItems.map(item => item.innerText);
   const inputContainer = input.parentElement;
+  const form = document.querySelector('.main-form');
   const loader = document.querySelector('.loader');
 
   // Randomizing list
@@ -66,11 +69,13 @@ function shuffleList() {
   if (isSameValues) shuffleList();
 
   // Appling styles
-  orderedList.classList.add('is-random')
+  orderedList.classList.add('is-random');
+  shuffleBtn.classList.add('rerun-mode');
   shuffleBtn.lastElementChild.innerText = 'Rerun';
   inputContainer.classList.add('is-hide');
   secondaryBtn.classList.add('is-active');
   secondaryBtn.addEventListener('click', checklistMode);
+  form.classList.add('random-mode')
 
   loader.classList.add('is-active');
   setTimeout( () => {
@@ -85,9 +90,24 @@ function keys(event) {
     addItem();
   }
 
-  (input.value)
-    ? addBtn.classList.add('is-active')
-    : addBtn.classList.remove('is-active')
+  if (input.value && nameList.length < 3) {
+    addBtn.classList.add('is-active')
+  }
+
+  if (!input.value && nameList.length < 3) {
+    addBtn.classList.remove('is-active');
+  }
+
+  if (input.value && nameList.length >= 3) {
+    shuffleBtn.classList.remove('is-active');
+    addBtn.classList.remove('is-hide');
+    addBtn.classList.add('is-active');
+  }
+
+  if (!input.value && nameList.length >= 3) {
+    shuffleBtn.classList.add('is-active');
+    addBtn.classList.add('is-hide');
+  }
 }
 
 
@@ -100,12 +120,11 @@ function deleteItem(event) {
 
   if (nameList.length < 3) {
     shuffleBtn.classList.remove('is-active');
+    addBtn.classList.remove('is-hide');
   }
 }
 
-
+addBtn.addEventListener('click', addItem)
 shuffleBtn.addEventListener('click', shuffleList);
 input.addEventListener('keypress', keys);
 input.addEventListener('keyup', keys);
-addBtn.addEventListener('click', addItem);
-addBtn.addEventListener('click', keys);

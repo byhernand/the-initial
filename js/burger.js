@@ -1,5 +1,5 @@
 const header = document.querySelector('header');
-const btn = document.getElementById('checkbox');
+const btn = document.getElementById('burger-btn');
 
 function openClose() {
   (btn.checked)

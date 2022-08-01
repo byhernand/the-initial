@@ -1,18 +1,34 @@
 /*----- Main -----*/
 
-.main-form {
-  right: 0;
-  bottom: 40px;
-  left: 0;
-  max-width: 530px;
-  margin: 0 auto;
-  border-radius: 50px;
+.main-list {
+  padding: 40px 20px;
 }
 
-.shuffle-btn {
-  margin-right: 8px;
+.my-list li span {
+  cursor: pointer;
+}
+
+.check-item {
+  top: 28px;
+}
+
+.main-form {
+  padding: 28px 0;
 }
 
 .input-field {
-  width: 75%;
+  margin-right: 12px;
+  padding: 0 28px;
+}
+
+.secondary-btn {
+  cursor: pointer;
+}
+
+.add-btn.is-active {
+  cursor: pointer;
+}
+
+.shuffle-btn.is-active {
+  cursor: pointer;
 }

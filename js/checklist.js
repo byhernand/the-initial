@@ -4,8 +4,8 @@ function checklistMode() {
 
   checkBtn.classList.add('is-active');
   shuffleBtn.classList.add('is-hide');
-  secondaryBtn.classList.add('restart-on');
-  secondaryBtn.lastElementChild.innerText = 'Restart';
+  secondaryBtn.classList.add('reset-on');
+  secondaryBtn.lastElementChild.innerText = 'Reset List';
   secondaryBtn.addEventListener('click', () => location.reload());
 
   checkBtnInput.addEventListener('click', () => {

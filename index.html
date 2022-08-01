@@ -17,14 +17,14 @@
 <body>
   <header class="header">
     <div class="header-container">
-      <input class="btn" type="checkbox" id="checkbox" />
-      <label class="burger" for="checkbox">
+      <input class="btn" type="checkbox" id="burger-btn" />
+      <label class="burger" for="burger-btn">
         <span></span>
         <span></span>
         <span></span>
       </label>
       <figure class="logo">
-        <img src="https://byhernand.com/the-initial/logo.svg" alt="The Initial logo" />
+        <img src="https://byhernand.com/the-initial/assets/logo.svg" alt="The Initial logo" />
       </figure>
       <nav>
         <a class="repo" href="https://github.com/byhernand/the-initial"><span class="icon"></span>Repository</a>
@@ -33,39 +33,43 @@
     </div>
   </header>
 
+
   <main class="main">
     <section class="main-list">
       <div class="loader">
         <span class="spinner"></span>
       </div>
-      <label class="check-item" for="check-item">
-        <input type="checkbox" id="check-item" />
+      <label class="check-item" for="checkbox">
+        <input type="checkbox" id="checkbox" />
       </label>
       <ol class="my-list" id="myList"></ol>
     </section>
 
     <form class="main-form" autocomplete="off">
-      <button class="shuffle-btn" type="button" id="shuffleBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 22 22">
-          <g transform="translate(-28 -352)">
-          <rect width="22" height="22" transform="translate(28 352)" fill="none"/>
-          <path d="M11.5,9.885,5.605,4,4,5.605,9.885,11.49ZM15.952,4l2.322,2.322L4,20.608l1.605,1.605L19.891,7.939l2.322,2.322V4Zm.376,10.712-1.605,1.605,3.563,3.563-2.334,2.334h6.261V15.952l-2.322,2.322-3.563-3.563Z" transform="translate(26.3 349.4)" />
-          </g>
-        </svg>
-        <span>Shuffle</span>
-      </button>
+      <div class="input-field">
+        <input type="text" placeholder="New item" id="inputItems" />
+      </div>
 
       <button class="secondary-btn" type="button" id="secondaryBtn">
         <span class="icon"></span>
         <span>Checklist</span>
       </button>
 
-      <div class="input-field">
-        <input type="text" placeholder="New item" id="inputItems"/>
-        <button type="button" id="addBtn">Add</button>
-      </div>
+      <button class="add-btn" id="addBtn" type="button">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.1 28.1">
+          <path d="M0,0H28.1V28.1H0Z" fill="none" />
+          <path d="M25.08,16.474H16.474V25.08H13.606V16.474H5V13.606h8.606V5h2.869v8.606H25.08Z" transform="translate(-0.99 -0.99)" />
+        </svg>
+      </button>
+
+      <button class="shuffle-btn" id="shuffleBtn" type="button">
+        <span class="icon"></span>
+        <span></span>
+      </button>
+
     </form>
   </main>
+
 
   <script src="js/burger.js"></script>
   <script src="js/checklist.js"></script>

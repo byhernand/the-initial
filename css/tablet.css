@@ -39,8 +39,6 @@ nav a:hover {
 nav .repo {
   width: auto;
   height: 28px;
-  padding-right: 16px;
-  border-right: 1px solid var(--black);
   margin-bottom: 0;
   font-size: 1.4rem;
   border-radius: 0;
@@ -53,12 +51,14 @@ nav .repo .icon {
 }
 
 nav .details {
-  display: inline-block;
-  font-size: 1.4rem;
-  margin-left: 16px;
+  display: none;
 }
 
 /*----- Main -----*/
+
+.main-form {
+  padding: 24px 0;
+}
 
 .spinner {
   width: 80px;
@@ -73,33 +73,18 @@ nav .details {
   cursor: pointer;
 }
 
-.my-list li:hover::after {
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 98%;
-  height: 1px;
-  content: '';
-  background-color: var(--mid-gray);
+.my-list li {
+  transition: .2s;
 }
 
-.my-list.is-random li:hover::after {
-  content: none;
+.my-list li:hover {
+  border-color: var(--dark-gray);
 }
 
 .my-list li span {
   right: 8px;
-  cursor: pointer;
 }
 
-.shuffle-btn.is-active {
-  cursor: pointer;
-}
-
-.input-field button.is-active:hover {
-  cursor: pointer;
-}
-
-.secondary-btn {
-  cursor: pointer;
+.my-list.is-random li:hover {
+  border-color: var(--light-gray);
 }

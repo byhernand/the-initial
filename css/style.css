@@ -7,13 +7,13 @@
 */
 
 :root {
-  --yellow: #f5de49;
-  --white: #fff;
-  --off-white: #ececec;
-  --light-gray: #d1d1d0;
-  --mid-gray: #8a8987;
-  --dark-gray: #4a4945;
-  --black: #0f0e09;
+  --yellow: #F5DE49;
+  --white: #FFF;
+  --off-white: #EDEDED;
+  --light-gray: #E8E8E8;
+  --mid-gray: #8A8987;
+  --dark-gray: #4F4E4A;
+  --black: #0F0E09;
 }
 
 * {
@@ -33,15 +33,23 @@ body {
   font-size: 1.6rem;
 }
 
+span.icon {
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /*----- Header -----*/
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 3;
   width: 100%;
   height: 50px;
   background-color: var(--yellow);
+  box-shadow: 0px 4px 8px 0px rgba(79,78,74,0.12);
   transition: .6s;
 }
 
@@ -62,8 +70,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 40px);
-  max-width: 535px;
+  width: calc(100% - 44px);
+  max-width: 514px;
   height: 100%;
   margin: 0 auto;
 }
@@ -114,7 +122,7 @@ body {
 
 nav {
   display: none;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 nav .repo {
@@ -132,14 +140,10 @@ nav .repo {
 }
 
 nav .repo .icon{
-  display: inline-block;
   width: 35px;
   height: 35px;
   margin-right: 4px;
-  background-image: url('https://byhernand.com/the-initial/github.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('https://byhernand.com/the-initial/assets/github.svg');
 }
 
 nav .details {
@@ -158,7 +162,7 @@ nav .details {
 .main-list {
   position: relative;
   width: 100%;
-  max-width: 535px;
+  max-width: 570px;
   padding: 24px 20px;
   margin: 0 auto;
 }
@@ -206,13 +210,25 @@ nav .details {
 .check-item {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10px;
   z-index: 1;
   display: none;
   justify-content: center;
   align-items: center;
   width: 60px;
   height: 60px;
+}
+
+.check-item input {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--black);
+  background-color: var(--off-white);
+  border-radius: 50%;
+  vertical-align: middle;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .check-item.is-active {
@@ -223,40 +239,17 @@ nav .details {
   background-color: var(--black);
 }
 
-.check-item input {
-  width: 24px;
-  height: 24px;
-  border: 3px solid var(--black);
-  background-color: var(--white);
-  border-radius: 50%;
-  vertical-align: middle;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 .my-list {
+  list-style: none;
   font-size: 2rem;
   list-style-position: inside;
 }
 
-.my-list.is-random li {
-  color: var(--mid-gray);
-}
-
-.my-list.is-random li:nth-child(1) {
-  font-weight: bold;
-  font-size: 2.2rem;
-  color: var(--black);
-}
-
-.my-list.is-random li:nth-child(2) {
-  color: var(--dark-gray);
-}
-
 .my-list li {
   position: relative;
-  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 16px;
   color: var(--dark-gray)
 }
 
@@ -274,69 +267,122 @@ nav .details {
   right: 0px;
   width: 27px;
   height: 27px;
-  background-image: url('https://byhernand.com/the-initial/close.svg');
+  background-image: url('https://byhernand.com/the-initial/assets/close.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   vertical-align: middle;
 }
 
+.my-list.is-random {
+  list-style-type: decimal;
+}
+
+.my-list.is-random li:nth-child(1) {
+  font-weight: bold;
+  font-size: 2.4rem;
+  color: var(--black);
+}
+
 .main-form {
   position: fixed;
   z-index: 2;
+  right: 0;
+  left: 0;
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 69px;
-  background-color: var(--off-white);
+  max-width: 570px;
+  padding: 16px 0;
+  margin: 0 auto;
+  background-color: var(--white);
 }
 
-.shuffle-btn {
+.main-form.random-mode {
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.add-btn, .shuffle-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 111px;
-  height: 45px;
+  width: 52px;
+  height: 52px;
   border: none;
-  margin-right: 4px;
+  border-radius: 50%;
+  fill: var(--white);
+  transition: .2s;
+}
+
+.add-btn {
+  color: var(--mid-gray);
+  background-color: var(--mid-gray);
+}
+
+.add-btn .icon {
+  width: 28px;
+  height: 28px;
+  fill: inherit;
+  transition: .2s;
+}
+
+.add-btn.is-active {
+  background-color: var(--yellow);
+  fill: var(--black);
+}
+
+.add-btn.is-hide {
+  display: none;
+}
+
+.shuffle-btn {
+  display: none;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.6rem;
   font-weight: bold;
-  color: var(--mid-gray);
-  border-radius: 23px;
-  background-color: var(--light-gray);
-}
-
-.shuffle-btn.is-active {
-  color: var(--black);
   background-color: var(--yellow);
 }
 
-.shuffle-btn.is-active svg {
-  fill: var(--black);
+.shuffle-btn .icon {
+  width: 28px;
+  height: 28px;
+  background-image: url('https://byhernand.com/the-initial/assets/shuffle.svg');
+}
+
+.shuffle-btn.is-active {
+  display: flex;
+}
+
+.shuffle-btn.rerun-mode {
+  width: auto;
+  padding: 0 16px;
+  border-radius: 30px;
+}
+
+.shuffle-btn.rerun-mode span:nth-child(2) {
+  margin-left: 3px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--black);
 }
 
 .shuffle-btn.is-hide {
   display: none;
 }
 
-.shuffle-btn svg {
-  margin-right: 4px;
-  fill: var(--mid-gray);
-}
-
 .input-field {
   display: flex;
-  justify-content: space-between;
-  width: 50%;
-  min-width: 173px;
-  max-width: 375px;
-  height: 44px;
-  padding: 11px 20px;
-  border: 1px solid var(--dark-gray);
-  border-radius: 22px;
+  align-items: center;
+  width: calc(100% - 98px);
+  min-width: 222px;
+  max-width: 466px;
+  height: 52px;
+  padding: 0 24px;
+  margin-right: 8px;
+  border-radius: 30px;
+  background-color: var(--off-white);
 }
 
 .input-field.is-hide {
@@ -347,27 +393,13 @@ nav .details {
   width: 100%;
   border: none;
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 1.6rem;
-  color: var(--mid-gray);
+  font-size: 1.8rem;
+  color: var(--dark-gray);
   background-color: transparent;
 }
 
-.input-field input:focus{
-  color: var(--dark-gray);
-}
-
-.input-field button {
-  padding-left: 12px;
-  border: none;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: bold;
-  font-size: 1.6rem;
+.input-field input::placeholder {
   color: var(--mid-gray);
-  background-color: transparent;
-}
-
-.input-field button.is-active {
-  color: var(--dark-gray);
 }
 
 .input-field input:focus-visible,
@@ -379,31 +411,33 @@ nav .details {
   display: none;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 45px;
-  border: 1px solid var(--dark-gray);
+  width: auto;
+  height: 52px;
+  padding: 0 16px;
+  border: none;
+  margin-right: 8px;
   font-size: 1.6rem;
   font-weight: bold;
   color: var(--mid-gray);
-  background-color: transparent;
-  border-radius: 22px;
+  background-color: var(--off-white);
+  border-radius: 30px;
+}
+
+.secondary-btn .icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 3px;
+  background-image: url('https://byhernand.com/the-initial/assets/checklist.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .secondary-btn.is-active {
   display: flex;
 }
 
-.secondary-btn.restart-on .icon{
-  background-image: url('https://byhernand.com/the-initial/restart.svg');
-}
-
-.secondary-btn .icon {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin-right: 4px;
-  background-image: url('https://byhernand.com/the-initial/checklist.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.secondary-btn.reset-on .icon{
+  background-image: url('https://byhernand.com/the-initial/assets/restart.svg');
 }
