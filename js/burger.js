@@ -3,8 +3,8 @@ const btn = document.getElementById('burger-btn');
 
 function openClose() {
   (btn.checked)
-    ? header.classList.add('is-active')
-    : header.classList.remove('is-active')
+    ? header.classList.add('full-screen')
+    : header.classList.remove('full-screen');
 }
 
 btn.addEventListener('click', openClose);
