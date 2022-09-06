@@ -1,8 +1,8 @@
-const orderedList = document.getElementById('myList');
+const myList = document.getElementById('myList');
 const input = document.getElementById('inputItems');
 const addBtn = document.getElementById('addBtn');
 const shuffleBtn = document.getElementById('shuffleBtn');
-const secondaryBtn = document.getElementById('secondaryBtn');
+const checklistBtn = document.getElementById('checklistBtn');
 const nameList = [];
 
 
@@ -17,7 +17,7 @@ function addItem() {
   if (input.value) {
     newItem.appendChild(text);
     newItem.appendChild(deleteBtn);
-    orderedList.appendChild(newItem);
+    myList.appendChild(newItem);
 
     nameList.push(input.value);
 
@@ -69,12 +69,12 @@ function shuffleList(event) {
   if (isSameValues) shuffleList();
 
   // Appling styles
-  orderedList.classList.add('is-random');
+  myList.classList.add('random-mode');
   shuffleBtn.classList.add('rerun-mode');
   shuffleBtn.lastElementChild.innerText = 'Rerun';
   inputContainer.classList.add('is-hide');
-  secondaryBtn.classList.add('is-active');
-  secondaryBtn.addEventListener('click', checklistMode);
+  checklistBtn.classList.add('is-active');``
+  checklistBtn.addEventListener('click', checklistMode);
   form.classList.add('random-mode')
 
   loader.classList.add('is-active');
@@ -124,7 +124,8 @@ function deleteItem(event) {
   }
 }
 
-addBtn.addEventListener('click', addItem)
+
+addBtn.addEventListener('click', addItem);
 shuffleBtn.addEventListener('click', shuffleList);
 input.addEventListener('keypress', keys);
 input.addEventListener('keyup', keys);

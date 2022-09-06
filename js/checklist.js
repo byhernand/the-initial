@@ -4,9 +4,9 @@ function checklistMode() {
 
   checkBtn.classList.add('is-active');
   shuffleBtn.classList.add('is-hide');
-  secondaryBtn.classList.add('reset-on');
-  secondaryBtn.lastElementChild.innerText = 'Reset List';
-  secondaryBtn.addEventListener('click', () => location.reload());
+  checklistBtn.classList.add('reset-mode');
+  checklistBtn.lastElementChild.innerText = 'Reset List';
+  checklistBtn.addEventListener('click', () => location.reload());
 
   checkBtnInput.addEventListener('click', () => {
     const printedItems = document.querySelectorAll('ol li');

@@ -245,13 +245,13 @@ nav .details {
   background-color: var(--black);
 }
 
-.my-list {
+.list {
   list-style: none;
   font-size: 2rem;
   list-style-position: inside;
 }
 
-.my-list li {
+.list li {
   position: relative;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--light-gray);
@@ -259,15 +259,15 @@ nav .details {
   color: var(--dark-gray)
 }
 
-.my-list li:hover span{
+.list li:hover span{
   display: inline-block;
 }
 
-.my-list li:last-child {
+.list li:last-child {
   margin-bottom: 0;
 }
 
-.my-list li span {
+.list li span {
   display: none;
   position: absolute;
   right: 0px;
@@ -280,11 +280,11 @@ nav .details {
   vertical-align: middle;
 }
 
-.my-list.is-random {
+.list.random-mode {
   list-style-type: decimal;
 }
 
-.my-list.is-random li:nth-child(1) {
+.list.random-mode li:nth-child(1) {
   font-weight: bold;
   font-size: 2.4rem;
   color: var(--black);
@@ -413,7 +413,7 @@ nav .details {
   outline: none;
 }
 
-.secondary-btn {
+.checklist-btn {
   display: none;
   justify-content: center;
   align-items: center;
@@ -429,7 +429,7 @@ nav .details {
   border-radius: 30px;
 }
 
-.secondary-btn .icon {
+.checklist-btn .icon {
   display: inline-block;
   width: 28px;
   height: 28px;
@@ -440,10 +440,10 @@ nav .details {
   background-repeat: no-repeat;
 }
 
-.secondary-btn.is-active {
+.checklist-btn.is-active {
   display: flex;
 }
 
-.secondary-btn.reset-on .icon{
+.checklist-btn.reset-mode .icon{
   background-image: url('https://byhernand.com/the-initial/assets/restart.svg');
 }

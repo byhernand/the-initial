@@ -73,18 +73,18 @@ nav .details {
   cursor: pointer;
 }
 
-.my-list li {
+.list li {
   transition: .2s;
 }
 
-.my-list li:hover {
+.list li:hover {
   border-color: var(--dark-gray);
 }
 
-.my-list li span {
+.list li span {
   right: 8px;
 }
 
-.my-list.is-random li:hover {
+.list.random-mode li:hover {
   border-color: var(--light-gray);
 }
