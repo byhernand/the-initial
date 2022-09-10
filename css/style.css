@@ -259,7 +259,7 @@ nav .details {
   color: var(--dark-gray)
 }
 
-.list li:hover span{
+.list li:hover button {
   display: inline-block;
 }
 
@@ -267,12 +267,14 @@ nav .details {
   margin-bottom: 0;
 }
 
-.list li span {
+.list li button {
   display: none;
   position: absolute;
   right: 0px;
   width: 27px;
   height: 27px;
+  border: none;
+  background-color: transparent;
   background-image: url('https://byhernand.com/the-initial/assets/close.svg');
   background-size: cover;
   background-position: center;
@@ -444,6 +446,6 @@ nav .details {
   display: flex;
 }
 
-.checklist-btn.reset-mode .icon{
+.checklist-btn.reset-mode .icon {
   background-image: url('https://byhernand.com/the-initial/assets/restart.svg');
 }

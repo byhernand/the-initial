@@ -81,7 +81,7 @@ nav .details {
   border-color: var(--dark-gray);
 }
 
-.list li span {
+.list li button {
   right: 8px;
 }
 

@@ -1,38 +1,38 @@
 const myList = document.getElementById('myList');
+const form = document.querySelector('.main-form');
 const input = document.getElementById('inputItems');
+const inputContainer = input.parentElement;
 const addBtn = document.getElementById('addBtn');
 const shuffleBtn = document.getElementById('shuffleBtn');
 const checklistBtn = document.getElementById('checklistBtn');
+const loader = document.querySelector('.loader');
 const nameList = [];
 
 
 function addItem() {
-  if (input.value.trim().length === 0) return null;
+  const validInput = input.value.trim().length !== 0;
 
-  const newItem = document.createElement('li');
-  const text = document.createTextNode(input.value);
-  const deleteBtn = document.createElement('span');
-  deleteBtn.addEventListener('click', deleteItem);
+  if (validInput) {
+    const newItem = document.createElement('li');
+    const text = document.createTextNode(input.value);
+    const deleteBtn = document.createElement('button');
+    deleteBtn.addEventListener('click', deleteItem);
 
-  if (input.value) {
     newItem.appendChild(text);
     newItem.appendChild(deleteBtn);
     myList.appendChild(newItem);
-
     nameList.push(input.value);
 
     input.focus();
     input.value = '';
-
     addBtn.classList.toggle('is-active');
 
     if (nameList.length >= 3) {
       addBtn.classList.add('is-hide');
       shuffleBtn.classList.add('is-active');
     }
-  }
-  else {
-    input.focus();
+  } else {
+    input.focus(); // Keeping mobile keyboard on focus
   }
 }
 
@@ -44,38 +44,35 @@ function random(min, max) {
 }
 
 
-function shuffleList(event) {
-  const nameListCopy = nameList.map(item => item);
-  const printedList = document.querySelectorAll('ol li');
-  const printedItems = Array.from(printedList);
-  const initialValues = printedItems.map(item => item.innerText);
-  const inputContainer = input.parentElement;
-  const form = document.querySelector('.main-form');
-  const loader = document.querySelector('.loader');
+function shuffleList() {
+  const nameListCopy = [...nameList];
+  const myItems = Array.from(document.querySelectorAll('ol li'));
+  const initialList = myItems.map(item => `<li>${item.innerText}</li>`);
 
   // Randomizing list
-  printedItems.forEach(item => {
+  const randomList = nameList.map(() => {
     const randomNum = random(0, nameListCopy.length - 1);
     const randomItem = nameListCopy.splice(randomNum, 1);
-    item.innerText = randomItem;
+    return `<li>${randomItem}</li>`;
   });
 
-  const finalValues = printedItems.map(item => item.innerText);
-  const isSameValues = initialValues.every(item => {
-    const index = initialValues.indexOf(item);
-    return initialValues[index] === finalValues[index];
-  })
+  const sameList = randomList.every((item, index) => {
+    return item === initialList[index];
+  });
 
-  if (isSameValues) shuffleList();
+  (!sameList)
+    ? myList.innerHTML = randomList.join('')
+    : shuffleList();
 
   // Appling styles
   myList.classList.add('random-mode');
+  form.classList.add('random-mode');
+  inputContainer.classList.add('is-hide');
+
   shuffleBtn.classList.add('rerun-mode');
   shuffleBtn.lastElementChild.innerText = 'Rerun';
-  inputContainer.classList.add('is-hide');
-  checklistBtn.classList.add('is-active');``
+  checklistBtn.classList.add('is-active');
   checklistBtn.addEventListener('click', checklistMode);
-  form.classList.add('random-mode')
 
   loader.classList.add('is-active');
   setTimeout( () => {

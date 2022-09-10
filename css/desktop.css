@@ -4,7 +4,7 @@
   padding: 40px 20px;
 }
 
-.list li span {
+.list li button {
   cursor: pointer;
 }
 
